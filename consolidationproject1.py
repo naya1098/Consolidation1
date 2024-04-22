@@ -1,3 +1,4 @@
+#Import all the modules 
 import time
 import random
 import game
@@ -5,7 +6,10 @@ import game
 #this will generate a random number that will be used later after certain questions
 random_number = random.randint(30, 100)
 
+#store the users name
 user_name = input("Please enter your name: ")
+
+#call game.
 game.display_rules()
 
 def welcome():
@@ -55,8 +59,6 @@ def question_two():
             print(e)
 
 
-
-
     if ans.lower() == 'y':
         print(f"Good for you, you got the job! And the award for biggest jerk!!")
         print(' ')
@@ -66,32 +68,29 @@ def question_two():
         print(' ')
         score += 1  # increase the score for making an ethical choice
  
-
-
-
-
+#loop this question 3 times
 def question_three():
     global score
-    while True:
-        try:
-            ans = input('Q:3 Your crush left their diary at your house by accident. Do you open it up and read?  (y/n): ')
-            print(' ')
-            if ans.lower() not in ('y', 'n'):
-                raise ValueError(f"Please enter 'y' or 'n'. ")
-            print(' ')
-            break
-        except ValueError as e:
-            print(e)
+    for i in range(2):  # Looping the question 2 times
+        while True:
+            try:
+                ans = input(f'Player {i+1}, your crush left their diary at your house by accident. Do you open it up and read? (y/n): ')
+                print(' ')
+                if ans.lower() not in ('y', 'n'):
+                    raise ValueError("Please enter 'y' or 'n'. ")
+                print(' ')
+                break
+            except ValueError as e:
+                print(e)
 
-
-    if ans.lower() == 'y':
-        print(f"Ever heard of privacy! Your crush is not talking to you anymore.")
-        print(' ')
-        score -= 1  #  decrease the score if the action is considered unethical
-    elif ans.lower() == 'n':
-        print(f"Good job you have basic decency!!")
-        print(' ')
-        score += 1  # increase the score for making an ethical choice
+        if ans.lower() == 'y':
+            print("Ever heard of privacy! Your crush is not talking to you anymore.")
+            print(' ')
+            score -= 1  # Decrease the score if the action is considered unethical
+        elif ans.lower() == 'n':
+            print("Good job you have basic decency!!")
+            print(' ')
+            score += 1  # Increase the score for making an ethical choice
 
 
 def finalscreen():
@@ -113,7 +112,7 @@ def finalscreen():
 welcome()
 time.sleep(2)  # Waits for 2 seconds before moving to the next question
 question_one()
-time.sleep(5)  # Waits for 3 seconds before moving to the next question
+time.sleep(5)  # Waits for 5 seconds before moving to the next question
 question_two()
 time.sleep(3)  # Waits for 3 seconds before moving to the next question
 question_three()
