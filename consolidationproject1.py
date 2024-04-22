@@ -48,33 +48,42 @@ def question_one():
 
 def question_two():
     global score
+    #list!
+    job_offers = [
+        ("a prestigious tech company", "another person who mistakenly didn’t receive the offer due to an admin error"),
+        ("a small startup", "a friend who was supposed to get the offer but their email was missed"),
+        ("a well-known corporation", "a highly qualified candidate who was overlooked because of a typo in their email address")
+    ]
+
+    # Randomly selects one job offer scenario
+    company, situation = random.choice(job_offers)
+
     while True:
         try:
-            ans = input(' Q2: You got offered an job that you know was originally intended for another person who mistakenly didn’t receive the offer due to an admin error. Do you take the job?! (y/n): ')
+            ans = input(f'Q2: You got offered a job at {company} that was originally intended for {situation}. Do you take the job? (y/n): ')
             if ans.lower() not in ('y', 'n'):
-                raise ValueError(f"Please enter 'y' or 'n'. ")
-            print(' ')
+                raise ValueError("Please enter 'y' or 'n'. ")
             break
         except ValueError as e:
             print(e)
-
+        print(' ')
 
     if ans.lower() == 'y':
-        print(f"Good for you, you got the job! And the award for biggest jerk!!")
+        print(f"Good for you, you got the job at {company}! And the award for biggest jerk!!")
         print(' ')
-        score -= 1  #  decrease the score if the action is considered unethical
+        score -= 1  # decrease the score if the action is considered unethical
     elif ans.lower() == 'n':
-        print(f"Amazing job! The company apprecated your honesty and is keeping you in mind :)")
+        print(f"Amazing job! The team at {company} appreciated your honesty and is keeping you in mind :)")
         print(' ')
         score += 1  # increase the score for making an ethical choice
  
-#loop this question 3 times
+# Loop this question 2 times
 def question_three():
     global score
     for i in range(2):  # Looping the question 2 times
         while True:
             try:
-                ans = input(f'Player {i+1}, your crush left their diary at your house by accident. Do you open it up and read? (y/n): ')
+                ans = input(f'Q3: your crush left their diary at your house by accident. Do you open it up and read? (y/n): ')
                 print(' ')
                 if ans.lower() not in ('y', 'n'):
                     raise ValueError("Please enter 'y' or 'n'. ")
@@ -112,7 +121,7 @@ def finalscreen():
 welcome()
 time.sleep(2)  # Waits for 2 seconds before moving to the next question
 question_one()
-time.sleep(5)  # Waits for 5 seconds before moving to the next question
+time.sleep(5)  # Waits for 3 seconds before moving to the next question
 question_two()
 time.sleep(3)  # Waits for 3 seconds before moving to the next question
 question_three()
@@ -125,3 +134,4 @@ finalscreen()
 time.sleep(3)
 # Print the final score after all questions
 print('Here is your final score:', score)
+
