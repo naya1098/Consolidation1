@@ -1,4 +1,4 @@
-#Import all the modules 
+#Import all that is needed 
 import time
 import random
 import game
@@ -163,3 +163,27 @@ finalscreen()
 time.sleep(3)
 # Print the final score after all questions
 print('Here is your final score:', score)
+
+#-----------------------------------------------------------
+#TEST CASES
+# 1) Function to test 'question_one' with a "no" response
+# def test_question_one_no():
+#     global score
+#     score = 0  # This will reset the score before running
+#     user_input = 'n'  
+#     question_one()  # Function to be tested
+#     assert score == 1, "YOU FAILED!: Score doesnt increase after ethical 'no' choice in question_one."
+#     print("YOU PASSED! Ethical 'no' response was correct for question_one.")
+
+# Function to test 'question_two' with a "yes" response
+# def test_question_two_yes():
+#     global score
+#     score = 0  # this wil reset the score before the test
+#     user_input = 'y'  
+#     question_two()  # Function to be tested
+#     assert score == -1, "YOU FAILED: Score did not decrease after unethical 'yes' choice in question_two."
+#     print("YOU PASSED: Unethical 'yes' response correctly handled in question_two.")
+
+# Call the test functions
+# test_question_one_no()
+# test_question_two_yes()
